@@ -22,6 +22,41 @@
                 0%, 100% { opacity: 1; }
                 50%       { opacity: 0; }
             }
+
+            /* ── Framing statement ────────────────────────────────── */
+            .framing-section {
+                padding-bottom: 60px;
+            }
+            .framing-text {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 1.5;
+                letter-spacing: -0.01em;
+            }
+            .framing-text p {
+                margin-bottom: 0.65em;
+            }
+            .framing-text p:last-child {
+                margin-bottom: 0;
+            }
+            .framing-text .framing-lead {
+                color: var(--text);
+            }
+            .framing-text .framing-body {
+                color: var(--muted);
+            }
+
+            /* ── Job outcome callout ──────────────────────────────── */
+            .job-outcome {
+                font-family: var(--font);
+                font-size: 15px;
+                font-weight: 400;
+                font-style: italic;
+                line-height: 1.45;
+                letter-spacing: -0.01em;
+                color: var(--text);
+                margin-bottom: 14px;
+            }
         </style>
         <script>
             document.documentElement.style.opacity = "0";
@@ -33,6 +68,9 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="css/style.css" />
+        <style>
+            .section-heading { margin-bottom: 30px; }
+        </style>
     </head>
     <body>
         <div class="page">
@@ -86,6 +124,14 @@
                 </aside>
 
                 <div class="cv-content">
+
+                    <div class="framing-section">
+                        <div class="framing-text">
+                            <p class="framing-lead">The work I do isn't always immediately visible, but it's felt in the clarity it creates.</p>
+                            <p class="framing-body">It shows up in untangled complexity, thoughtfully rebuilt workflows, and product decisions grounded in research rather than assumption. What follows is a record of where that work has taken shape—and the outcomes it delivered.</p>
+                        </div>
+                    </div>
+
                     <section class="cv-section" aria-label="Experience">
                         <h2 class="section-heading">Experience</h2>
                         <div class="job-list">
@@ -106,6 +152,7 @@
                                     </div>
                                 </div>
                                 <div class="job-right">
+                                    <p class="job-outcome">Designed the platform end-to-end — from catalog browsing to order workflows — for a B2B ecosystem now used by Stanley, New Balance, and The North Face.</p>
                                     <ul>
                                         <li>
                                             Leading design vision and execution
@@ -147,6 +194,7 @@
                                     </div>
                                 </div>
                                 <div class="job-right">
+                                    <p class="job-outcome">Research-led redesigns that measurably improved satisfaction across nationally-used automotive products serving thousands of dealerships.</p>
                                     <ul>
                                         <li>
                                             Worked with developers and
@@ -206,6 +254,7 @@
                                     </div>
                                 </div>
                                 <div class="job-right">
+                                    <p class="job-outcome">Delivered global-scale intranet solutions for J&amp;J, Sanofi, and Amgen — systems used by hundreds of thousands of employees worldwide.</p>
                                     <ul>
                                         <li>
                                             Created innovative global scale
@@ -252,6 +301,7 @@
                                     </div>
                                 </div>
                                 <div class="job-right">
+                                    <p class="job-outcome">Contracted to lead design on TaylorMade and Adidas Golf's B2B merchandising solution — delivering a global product that drove measurable sales growth for the platform.</p>
                                     <ul>
                                         <li>
                                             Contracted to lead the design effort
@@ -298,6 +348,7 @@
                                     </div>
                                 </div>
                                 <div class="job-right">
+                                    <p class="job-outcome">Led both design and front-end development from first concept to shipped product on a B2B commerce platform built to manage entire e-commerce ecosystems.</p>
                                     <ul>
                                         <li>
                                             Worked with stakeholders to create a
@@ -318,6 +369,39 @@
                                             user flow matrices, design
                                             documentation, and UI styleguides
                                             for the engineering team.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article class="job">
+                                <div class="job-left">
+                                    <h3 class="job-title">
+                                        Designer &amp; Front-End Developer
+                                    </h3>
+                                    <div class="job-meta">
+                                        <a
+                                            href="https://www.goodness.inc/"
+                                            target="_blank"
+                                            rel="noopener"
+                                            >BKWLD ↗&#xFE0E;</a
+                                        >
+                                        <span>March 2010 – April 2012</span>
+                                        <span>Sacramento, CA</span>
+                                    </div>
+                                </div>
+                                <div class="job-right">
+                                    <p class="job-outcome">Designed and developed consumer-facing digital experiences across web, email, mobile, and desktop for a diverse client roster at a full-service digital agency.</p>
+                                    <ul>
+                                        <li>
+                                            Worked across a variety of industries
+                                            to design and develop direct-to-consumer
+                                            websites, email newsletters, and mobile
+                                            and desktop applications.
+                                        </li>
+                                        <li>
+                                            Contributed to marketing initiatives
+                                            that drove user engagement and
+                                            measurable growth for clients.
                                         </li>
                                     </ul>
                                 </div>
