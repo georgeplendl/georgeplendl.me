@@ -126,6 +126,48 @@
       });
     });
 
+    gsap.utils.toArray('.logo-track').forEach(function (track) {
+      var touchStartX  = 0;
+      var animStartX   = 0;
+      var halfWidth    = 0;
+      var animDuration = 22;
+
+      function getTranslateX() {
+        var transform = window.getComputedStyle(track).transform;
+        if (!transform || transform === 'none') return 0;
+        return new DOMMatrix(transform).m41;
+      }
+
+      function onTouchStart(e) {
+        halfWidth   = track.offsetWidth / 2;
+        animStartX  = getTranslateX();
+        touchStartX = e.touches[0].clientX;
+        // Set inline transform to current position first, THEN kill animation
+        // so there's no jump when animation is removed
+        track.style.transform = 'translateX(' + animStartX + 'px)';
+        track.style.animation = 'none';
+      }
+
+      function onTouchMove(e) {
+        var delta = e.touches[0].clientX - touchStartX;
+        var newX  = Math.min(0, Math.max(-halfWidth, animStartX + delta));
+        track.style.transform = 'translateX(' + newX + 'px)';
+      }
+
+      function onTouchEnd() {
+        var currentX = getTranslateX();
+        var progress = halfWidth > 0 ? Math.abs(currentX) / halfWidth : 0;
+        // Restore animation from the exact scroll position the user left off at
+        track.style.transform = '';
+        track.style.animation = 'logo-scroll ' + animDuration + 's linear ' + -(progress * animDuration) + 's infinite';
+      }
+
+      track.addEventListener('touchstart',  onTouchStart, { passive: true });
+      track.addEventListener('touchmove',   onTouchMove,  { passive: true });
+      track.addEventListener('touchend',    onTouchEnd,   { passive: true });
+      track.addEventListener('touchcancel', onTouchEnd,   { passive: true });
+    });
+
     var footer = document.querySelector('.site-footer');
     if (footer) {
       gsap.from(footer, {
