@@ -79,7 +79,7 @@
     var framing = document.querySelector('.framing-text');
     if (framing) {
       gsap.from(framing, {
-        scrollTrigger: { trigger: framing, start: 'top 87%', once: true },
+        scrollTrigger: { trigger: framing, start: 'top 97%', once: true },
         opacity: 0, y: 28, scale: 0.9, filter: 'blur(10px)',
         duration: 0.7, ease: 'power2.out',
         clearProps: 'filter,scale'
@@ -89,7 +89,7 @@
     gsap.utils.toArray('.cv-section, .about-section, .brands-section').forEach(function (el) {
       var heading = el.querySelector('.section-heading, h2');
       var body    = el.querySelector('.job-list, .skills-grid, .education-row, .about-body, .brands-list');
-      var st      = { trigger: el, start: 'top 87%', once: true };
+      var st      = { trigger: el, start: 'top 97%', once: true };
 
       if (heading) {
         gsap.from(heading, {
@@ -114,7 +114,7 @@
       var inView = job.getBoundingClientRect().top < window.innerHeight * 0.9;
       var delay  = inView ? inViewIndex++ * 0.25 : 0;
       gsap.from(job, {
-        scrollTrigger: { trigger: job, start: 'top 90%', once: true },
+        scrollTrigger: { trigger: job, start: 'top 97%', once: true },
         opacity: 0, y: 28, scale: 0.9, filter: 'blur(10px)',
         duration: 0.65, ease: 'power2.out',
         delay: delay,
@@ -125,7 +125,7 @@
     var footer = document.querySelector('.site-footer');
     if (footer) {
       gsap.from(footer, {
-        scrollTrigger: { trigger: footer, start: 'top 92%', once: true },
+        scrollTrigger: { trigger: footer, start: 'top 98%', once: true },
         opacity: 0, y: 16, scale: 0.9, filter: 'blur(8px)',
         duration: 0.6, ease: 'power2.out',
         clearProps: 'filter,scale'
