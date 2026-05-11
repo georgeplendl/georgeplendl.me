@@ -158,7 +158,36 @@ a { color: inherit; text-decoration: underline; }
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.005em;
-  margin-bottom: 37px;
+  margin-bottom: 30px;
+}
+
+/* ── Framing statement ───────────────────────────────────── */
+
+.framing-section {
+  padding-bottom: 60px;
+}
+
+.framing-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.framing-text p {
+  margin-bottom: 0.65em;
+}
+
+.framing-text p:last-child {
+  margin-bottom: 0;
+}
+
+.framing-lead {
+  color: var(--text);
+}
+
+.framing-body {
+  color: var(--muted);
 }
 
 /* ── Jobs ────────────────────────────────────────────────── */
@@ -235,6 +264,17 @@ a { color: inherit; text-decoration: underline; }
 
 .job-right li:last-child {
   margin-bottom: 0;
+}
+
+.job-outcome {
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 14px;
 }
 
 /* ── Skills ──────────────────────────────────────────────── */
@@ -382,6 +422,24 @@ a { color: inherit; text-decoration: underline; }
 
 .brands-list li:last-child {
   margin-bottom: 0;
+}
+
+/* ── Typing cursor ───────────────────────────────────────── */
+
+.typing-cursor::after {
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 1.3em;
+  background: currentColor;
+  vertical-align: -0.3em;
+  margin-left: 2px;
+  animation: cursor-blink 0.65s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
