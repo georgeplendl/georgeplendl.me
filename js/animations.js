@@ -74,6 +74,16 @@
   // ── Scroll animations ────────────────────────────────────
 
   function setupScrollAnimations() {
+    var framing = document.querySelector('.framing-text');
+    if (framing) {
+      gsap.from(framing, {
+        scrollTrigger: { trigger: framing, start: 'top 87%', once: true },
+        opacity: 0, y: 28, scale: 0.9, filter: 'blur(10px)',
+        duration: 0.7, ease: 'power2.out',
+        clearProps: 'filter,scale'
+      });
+    }
+
     gsap.utils.toArray('.cv-section, .about-section, .brands-section').forEach(function (el) {
       var heading = el.querySelector('.section-heading, h2');
       var body    = el.querySelector('.job-list, .skills-grid, .education-row, .about-body, .brands-list');

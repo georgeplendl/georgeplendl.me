@@ -415,6 +415,7 @@ a { color: inherit; text-decoration: underline; }
     width: 100%;
     position: static;
     padding-right: 0;
+    margin-bottom: 30px;
   }
 
   .sidebar-bio {
