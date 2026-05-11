@@ -54,6 +54,8 @@
     var subtitle = document.querySelector('.name-subtitle');
     var primaryText  = primary.textContent.trim();
     var subtitleText = subtitle.textContent.trim();
+    primary.style.minHeight  = primary.offsetHeight  + 'px';
+    subtitle.style.minHeight = subtitle.offsetHeight + 'px';
     primary.textContent  = '';
     subtitle.textContent = '';
     primary.classList.add('typing-cursor');
