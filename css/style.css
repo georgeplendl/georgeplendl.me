@@ -428,6 +428,7 @@ a { color: inherit; text-decoration: underline; }
 
 .logo-slider {
   overflow: hidden;
+  width: 100%;
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
@@ -557,6 +558,14 @@ a { color: inherit; text-decoration: underline; }
 
   .about-body {
     font-size: 18px;
+  }
+
+  .logo-item {
+    height: 40px;
+  }
+
+  .logo-track {
+    gap: 48px;
   }
 }
 
