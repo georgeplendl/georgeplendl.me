@@ -25,6 +25,7 @@ body {
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: underline; }
@@ -403,6 +404,7 @@ a { color: inherit; text-decoration: underline; }
   display: flex;
   flex-direction: column;
   gap: 37px;
+  overflow: hidden;
 }
 
 .brands-list {
@@ -553,19 +555,30 @@ a { color: inherit; text-decoration: underline; }
   }
 
   .about-section {
-    padding-right: 0;
+    padding: 20px 0 40px;
+    gap: 20px;
   }
 
   .about-body {
     font-size: 18px;
   }
 
+  .brands-section {
+    padding: 16px 0 40px;
+    gap: 24px;
+  }
+
+  .logo-slider {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+
   .logo-item {
-    height: 40px;
+    height: 36px;
   }
 
   .logo-track {
-    gap: 48px;
+    gap: 40px;
   }
 }
 
