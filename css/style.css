@@ -531,6 +531,7 @@ a { color: inherit; text-decoration: underline; }
 
   .cv-content {
     padding-left: 0;
+    width: 100%;
   }
 
   .cv-section {
