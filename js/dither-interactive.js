@@ -1,5 +1,5 @@
 (function () {
-    const DITHER_FG = [0.071, 0.071, 0.071]; /* #121212 */
+    const DITHER_FG = [0.102, 0.102, 0.102]; /* #1a1a1a */
     const DITHER_BG = [0.0,   0.0,   0.0  ]; /* #000000 */
     const MAX_CLICKS = 30;
 
