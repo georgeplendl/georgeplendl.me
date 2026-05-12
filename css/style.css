@@ -138,6 +138,11 @@ a { color: inherit; text-decoration: underline; }
   margin-left: 1px;
 }
 
+a .arrow {
+  display: inline-block;
+  text-decoration: none !important;
+}
+
 /* ── CV content column ───────────────────────────────────── */
 
 .cv-content {
