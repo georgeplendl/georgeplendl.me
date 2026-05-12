@@ -136,7 +136,10 @@ a { color: inherit; text-decoration: underline; }
 .arrow {
   font-size: 10px;
   margin-left: 1px;
-  text-decoration: none;
+}
+
+a .arrow {
+  text-decoration: none !important;
 }
 
 /* ── CV content column ───────────────────────────────────── */
