@@ -197,7 +197,7 @@ a { color: inherit; text-decoration: underline; }
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding-right: 20px;
+  padding-right: 0;
 }
 
 .job {
@@ -452,12 +452,12 @@ a { color: inherit; text-decoration: underline; }
   height: 64px;
   display: flex;
   align-items: center;
-  opacity: 0.5;
+  opacity: 1;
   transition: opacity 0.2s;
 }
 
 .logo-item:hover {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .logo-item img {
@@ -473,6 +473,14 @@ a { color: inherit; text-decoration: underline; }
   100% { transform: translateX(-50%); }
 }
 
+/* ── Name home link ─────────────────────────────────────── */
+
+a.name-block {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 /* ── Typing cursor ───────────────────────────────────────── */
 
 .typing-cursor::after {
@@ -483,7 +491,7 @@ a { color: inherit; text-decoration: underline; }
   background: currentColor;
   vertical-align: -0.3em;
   margin-left: 2px;
-  animation: cursor-blink 0.65s step-end infinite;
+  animation: cursor-blink 1.1s step-end infinite;
 }
 
 @keyframes cursor-blink {

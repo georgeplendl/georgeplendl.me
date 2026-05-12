@@ -47,11 +47,13 @@
       gsap.set('.sidebar-link',                      { opacity: 0, y: 8,  scale: 0.9, filter: 'blur(8px)'  });
       gsap.set('.about-section .section-heading',    { opacity: 0, y: 10, scale: 0.9, filter: 'blur(6px)'  });
       gsap.set('.about-section .about-body',         { opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)' });
+      gsap.set('.about-section',                     { borderTopColor: 'transparent' });
 
       var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       tl.to('.name-block',                        { opacity: 1, y: 0, scale: 1, duration: 0.5, clearProps: 'transform' },                                              0)
         .to('.nav-link',                          { opacity: 1, scale: 1, duration: 0.5, clearProps: 'opacity,scale' },                                                0)
         .to('.sidebar-bio',                       { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.65, clearProps: 'filter,scale' },                     0.35)
+        .to('.about-section',                     { borderTopColor: 'var(--divider)', duration: 0.55, ease: 'power2.out' },                                            0.35)
         .to('.about-section .section-heading',    { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.55, clearProps: 'filter,scale' },                     0.35)
         .to('.about-section .about-body',         { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.65, clearProps: 'filter,scale' },                     0.45)
         .to('.sidebar-link',                      { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.45, stagger: 0.06, clearProps: 'filter,scale' },      0.45);
