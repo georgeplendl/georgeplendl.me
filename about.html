@@ -1,108 +1,304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — George Plendl</title>
-  <style>html { background: #000; }</style>
-  <script>document.documentElement.style.opacity='0'</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600&family=Geist:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="page-about">
-  <canvas id="dither-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;image-rendering:pixelated;"></canvas>
-  <div class="page" style="position:relative;z-index:1;">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About — George Plendl</title>
+        <style>
+            html {
+                background: #000;
+            }
+        </style>
+        <script>
+            document.documentElement.style.opacity = "0";
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600&family=Geist:wght@400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body class="page-about">
+        <canvas
+            id="dither-bg"
+            style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+                pointer-events: none;
+                image-rendering: pixelated;
+            "
+        ></canvas>
+        <div class="page" style="position: relative; z-index: 1">
+            <header class="site-header">
+                <a href="index.html" class="name-block">
+                    <span class="name-primary">George Plendl,</span>
+                    <span class="name-subtitle">Senior Product Designer</span>
+                </a>
+                <a href="index.html" class="nav-link">Back</a>
+            </header>
 
-    <header class="site-header">
-      <a href="index.html" class="name-block">
-        <span class="name-primary">George Plendl,</span>
-        <span class="name-subtitle">Senior Product Designer</span>
-      </a>
-      <a href="index.html" class="nav-link">Back</a>
-    </header>
+            <main class="site-main">
+                <aside class="sidebar" aria-label="Contact information">
+                    <div class="sidebar-bio">
+                        Senior Product Designer with 15+ years turning complex
+                        challenges into intuitive, high-impact digital
+                        experiences.
+                    </div>
+                    <a
+                        href="mailto:gplendl@gmail.com"
+                        class="sidebar-link link-email"
+                        aria-label="Send me an email"
+                    >
+                        Email me<span class="arrow">↗&#xFE0E;</span>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/george-plendl/"
+                        class="sidebar-link"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="View my LinkedIn profile (opens in new tab)"
+                    >
+                        LinkedIn<span class="arrow">↗&#xFE0E;</span>
+                    </a>
+                    <a
+                        href="https://github.com/georgeplendl"
+                        class="sidebar-link"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="View my GitHub profile (opens in new tab)"
+                    >
+                        Github<span class="arrow">↗&#xFE0E;</span>
+                    </a>
+                </aside>
 
-    <main class="site-main">
+                <div class="cv-content">
+                    <section class="about-section" aria-label="About Me">
+                        <h2 class="section-heading">About Me</h2>
+                        <div class="about-body">
+                            <p>
+                                George Plendl is a Senior Product Designer with
+                                15+ years of experience turning complex B2B and
+                                eCommerce challenges into intuitive, high-impact
+                                digital experiences. Grounded in UX principles
+                                and guided by research, data, and user insights,
+                                I excel at transforming ambiguity into clarity,
+                                designing human-centered solutions that
+                                streamline workflows, spark innovation, and
+                                deliver measurable value for both users and
+                                businesses.
+                            </p>
+                            <p>
+                                More recently, I've been integrating AI into my
+                                design process as a practical layer that
+                                improves clarity, consistency, and speed. I use
+                                it to synthesize stakeholder inputs and
+                                research, surface edge cases early, expand
+                                solution exploration, and accelerate everything
+                                from wireframing to spec writing. The result is
+                                sharper problem framing, faster iteration, and
+                                smoother handoff to engineering, without losing
+                                the human-centered foundation the work is built
+                                on.
+                            </p>
+                            <p>
+                                Feel free to
+                                <a href="mailto:gplendl@gmail.com">reach out</a>
+                                to learn how I can help your team.
+                            </p>
+                        </div>
+                    </section>
 
-      <aside class="sidebar" aria-label="Contact information">
-        <div class="sidebar-bio">
-          Senior Product Designer with 15+ years turning complex challenges into intuitive, high-impact digital experiences.
+                    <section
+                        class="brands-section"
+                        aria-label="Brands I've Worked With"
+                    >
+                        <h2 class="section-heading">
+                            Designing products that move the needle for brands
+                            people love
+                        </h2>
+                        <div class="logo-slider">
+                            <div class="logo-track">
+                                <!-- Set 1 -->
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/stanley.png"
+                                        alt="Stanley"
+                                        title="Stanley"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/new-balance.png"
+                                        alt="New Balance"
+                                        title="New Balance"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/north-face.png"
+                                        alt="The North Face"
+                                        title="The North Face"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/cox-automotive.svg"
+                                        alt="Cox Automotive"
+                                        title="Cox Automotive"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/taylormade.png"
+                                        alt="TaylorMade Golf"
+                                        title="TaylorMade Golf"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/adidas-golf.png"
+                                        alt="Adidas Golf"
+                                        title="Adidas Golf"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/callaway.png"
+                                        alt="Callaway Golf"
+                                        title="Callaway Golf"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/dickies.svg"
+                                        alt="Dickies"
+                                        title="Dickies"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/volcom.png"
+                                        alt="Volcom"
+                                        title="Volcom"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/burton.svg"
+                                        alt="Burton"
+                                        title="Burton"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/carhartt.png"
+                                        alt="Carhartt"
+                                        title="Carhartt"
+                                    />
+                                </div>
+                                <!-- Set 2 — duplicate for seamless loop -->
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/stanley.png"
+                                        alt="Stanley"
+                                        title="Stanley"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/new-balance.png"
+                                        alt="New Balance"
+                                        title="New Balance"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/north-face.png"
+                                        alt="The North Face"
+                                        title="The North Face"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/cox-automotive.svg"
+                                        alt="Cox Automotive"
+                                        title="Cox Automotive"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/taylormade.png"
+                                        alt="TaylorMade Golf"
+                                        title="TaylorMade Golf"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/adidas-golf.png"
+                                        alt="Adidas Golf"
+                                        title="Adidas Golf"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/callaway.png"
+                                        alt="Callaway Golf"
+                                        title="Callaway Golf"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/dickies.svg"
+                                        alt="Dickies"
+                                        title="Dickies"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/volcom.png"
+                                        alt="Volcom"
+                                        title="Volcom"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/burton.svg"
+                                        alt="Burton"
+                                        title="Burton"
+                                    />
+                                </div>
+                                <div class="logo-item">
+                                    <img
+                                        src="images/logos/carhartt.png"
+                                        alt="Carhartt"
+                                        title="Carhartt"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer class="site-footer">
+                        <a
+                            href="mailto:gplendl@gmail.com"
+                            class="contact-link"
+                            aria-label="Send me an email"
+                            >Contact me</a
+                        >
+                    </footer>
+                </div>
+            </main>
         </div>
-        <a href="mailto:gplendl@gmail.com" class="sidebar-link link-email" aria-label="Send me an email">
-          Email me<span class="arrow">↗&#xFE0E;</span>
-        </a>
-        <a href="https://www.linkedin.com/in/george-plendl/" class="sidebar-link" target="_blank" rel="noopener" aria-label="View my LinkedIn profile (opens in new tab)">
-          LinkedIn<span class="arrow">↗&#xFE0E;</span>
-        </a>
-        <a href="https://github.com/georgeplendl" class="sidebar-link" target="_blank" rel="noopener" aria-label="View my GitHub profile (opens in new tab)">
-          Github<span class="arrow">↗&#xFE0E;</span>
-        </a>
-      </aside>
-
-      <div class="cv-content">
-
-        <section class="about-section" aria-label="About Me">
-          <h2 class="section-heading">About Me</h2>
-          <div class="about-body">
-            <p>Senior Product Designer with 15+ years of experience turning complex B2B and eCommerce
-              challenges into intuitive, high-impact digital experiences. Grounded in UX principles and
-              guided by research, data, and user insights, I excel at transforming ambiguity into clarity,
-              designing human-centered solutions that streamline workflows, spark innovation, and deliver
-              measurable value for both users and businesses.</p>
-            <p>More recently, I've been integrating AI into my design process as a practical layer that
-              improves clarity, consistency, and speed. I use it to synthesize stakeholder inputs and
-              research, surface edge cases early, expand solution exploration, and accelerate everything
-              from wireframing to spec writing. The result is sharper problem framing, faster iteration,
-              and smoother handoff to engineering, without losing the human-centered foundation the work
-              is built on.</p>
-            <p>Feel free to <a href="mailto:gplendl@gmail.com">reach out</a> to learn how I can help your team.</p>
-          </div>
-        </section>
-
-        <section class="brands-section" aria-label="Brands I've Worked With">
-          <h2 class="section-heading">Designing products that move the needle for brands people love</h2>
-          <div class="logo-slider">
-            <div class="logo-track">
-              <!-- Set 1 -->
-              <div class="logo-item"><img src="images/logos/stanley.png" alt="Stanley" title="Stanley"></div>
-              <div class="logo-item"><img src="images/logos/new-balance.png" alt="New Balance" title="New Balance"></div>
-              <div class="logo-item"><img src="images/logos/north-face.png" alt="The North Face" title="The North Face"></div>
-              <div class="logo-item"><img src="images/logos/cox-automotive.svg" alt="Cox Automotive" title="Cox Automotive"></div>
-              <div class="logo-item"><img src="images/logos/taylormade.png" alt="TaylorMade Golf" title="TaylorMade Golf"></div>
-              <div class="logo-item"><img src="images/logos/adidas-golf.png" alt="Adidas Golf" title="Adidas Golf"></div>
-              <div class="logo-item"><img src="images/logos/callaway.png" alt="Callaway Golf" title="Callaway Golf"></div>
-              <div class="logo-item"><img src="images/logos/dickies.svg" alt="Dickies" title="Dickies"></div>
-              <div class="logo-item"><img src="images/logos/volcom.png" alt="Volcom" title="Volcom"></div>
-              <div class="logo-item"><img src="images/logos/burton.svg" alt="Burton" title="Burton"></div>
-              <div class="logo-item"><img src="images/logos/carhartt.png" alt="Carhartt" title="Carhartt"></div>
-              <!-- Set 2 — duplicate for seamless loop -->
-              <div class="logo-item"><img src="images/logos/stanley.png" alt="Stanley" title="Stanley"></div>
-              <div class="logo-item"><img src="images/logos/new-balance.png" alt="New Balance" title="New Balance"></div>
-              <div class="logo-item"><img src="images/logos/north-face.png" alt="The North Face" title="The North Face"></div>
-              <div class="logo-item"><img src="images/logos/cox-automotive.svg" alt="Cox Automotive" title="Cox Automotive"></div>
-              <div class="logo-item"><img src="images/logos/taylormade.png" alt="TaylorMade Golf" title="TaylorMade Golf"></div>
-              <div class="logo-item"><img src="images/logos/adidas-golf.png" alt="Adidas Golf" title="Adidas Golf"></div>
-              <div class="logo-item"><img src="images/logos/callaway.png" alt="Callaway Golf" title="Callaway Golf"></div>
-              <div class="logo-item"><img src="images/logos/dickies.svg" alt="Dickies" title="Dickies"></div>
-              <div class="logo-item"><img src="images/logos/volcom.png" alt="Volcom" title="Volcom"></div>
-              <div class="logo-item"><img src="images/logos/burton.svg" alt="Burton" title="Burton"></div>
-              <div class="logo-item"><img src="images/logos/carhartt.png" alt="Carhartt" title="Carhartt"></div>
-            </div>
-          </div>
-        </section>
-
-        <footer class="site-footer">
-          <a href="mailto:gplendl@gmail.com" class="contact-link" aria-label="Send me an email">Contact me</a>
-        </footer>
-
-      </div>
-    </main>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/transitions.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/dither.js"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="js/transitions.js"></script>
+        <script src="js/animations.js"></script>
+        <script src="js/dither.js"></script>
+    </body>
 </html>
