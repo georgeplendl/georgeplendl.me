@@ -353,6 +353,135 @@ a .arrow {
   color: var(--muted);
 }
 
+/* ── Impact ──────────────────────────────────────────────── */
+
+.impact-intro {
+  font-family: var(--font-list);
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+.scale-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 37px;
+  margin-bottom: 60px;
+}
+
+.scale-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scale-number {
+  font-family: var(--font);
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+.scale-label {
+  font-family: var(--font-list);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 37px;
+  margin-bottom: 60px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-number {
+  font-family: var(--font);
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.metric-label {
+  font-family: var(--font-list);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.testimonial {
+  border-top: 0.5px solid var(--divider);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.testimonial-left {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonial-role {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.testimonial-company {
+  font-size: 15px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+}
+
+.testimonial-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.testimonial-quote {
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.testimonial-feature {
+  font-family: var(--font-list);
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
 /* ── Footer ──────────────────────────────────────────────── */
 
 .site-footer {

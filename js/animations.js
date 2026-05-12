@@ -99,7 +99,7 @@
       var inView  = el.getBoundingClientRect().top < window.innerHeight;
       var delay   = inView ? 1.1 : 0;
       var heading = el.querySelector('.section-heading, h2');
-      var body    = el.querySelector('.skills-grid, .education-row, .about-body, .brands-list');
+      var bodies  = el.querySelectorAll('.skills-grid, .education-row, .about-body, .brands-list, .impact-body');
       var st      = { trigger: el, start: 'top 97%', once: true };
 
       if (el.classList.contains('cv-section')) {
@@ -120,15 +120,17 @@
           clearProps: 'filter,scale'
         });
       }
-      if (body) {
+      bodies.forEach(function (body) {
+        var bodyInView = body.getBoundingClientRect().top < window.innerHeight;
+        var bodyDelay  = bodyInView ? 1.1 : 0;
         gsap.from(body, {
-          scrollTrigger: st,
+          scrollTrigger: { trigger: body, start: 'top 97%', once: true },
           opacity: 0, y: 28, scale: 0.9, filter: 'blur(10px)',
           duration: 0.7, ease: 'power2.out',
-          delay: delay + 0.1,
+          delay: bodyDelay + 0.1,
           clearProps: 'filter,scale'
         });
-      }
+      });
     });
 
     var inViewIndex = 0;
@@ -137,6 +139,19 @@
       var delay  = inView ? 1.1 + inViewIndex++ * 0.12 : 0;
       gsap.from(job, {
         scrollTrigger: { trigger: job, start: 'top 97%', once: true },
+        opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)',
+        duration: 0.65, ease: 'power3.out',
+        delay: delay,
+        clearProps: 'filter,scale'
+      });
+    });
+
+    var inViewTestimonialIndex = 0;
+    gsap.utils.toArray('.testimonial').forEach(function (testimonial) {
+      var inView = testimonial.getBoundingClientRect().top < window.innerHeight * 0.9;
+      var delay  = inView ? 1.1 + inViewTestimonialIndex++ * 0.12 : 0;
+      gsap.from(testimonial, {
+        scrollTrigger: { trigger: testimonial, start: 'top 97%', once: true },
         opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)',
         duration: 0.65, ease: 'power3.out',
         delay: delay,
