@@ -440,7 +440,7 @@ a { color: inherit; text-decoration: underline; }
   align-items: center;
   gap: 72px;
   width: max-content;
-  animation: logo-scroll 22s linear 1.2s infinite;
+  animation: logo-scroll 35s linear 1.2s infinite;
 }
 
 .logo-track:hover {

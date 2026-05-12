@@ -41,21 +41,27 @@
 
     if (isAbout) {
       document.querySelector('.name-subtitle').classList.add('typing-cursor');
-      gsap.set('.nav-link',     { opacity: 0, scale: 0.9 });
-      gsap.set('.sidebar-bio',  { opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)' });
-      gsap.set('.sidebar-link', { opacity: 0, y: 8,  scale: 0.9, filter: 'blur(8px)'  });
+      gsap.set('.name-block',                        { opacity: 0, y: 8,  scale: 0.97 });
+      gsap.set('.nav-link',                          { opacity: 0, scale: 0.9 });
+      gsap.set('.sidebar-bio',                       { opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)' });
+      gsap.set('.sidebar-link',                      { opacity: 0, y: 8,  scale: 0.9, filter: 'blur(8px)'  });
+      gsap.set('.about-section .section-heading',    { opacity: 0, y: 10, scale: 0.9, filter: 'blur(6px)'  });
+      gsap.set('.about-section .about-body',         { opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)' });
 
       var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.to('.nav-link',     { opacity: 1, scale: 1, duration: 0.5, clearProps: 'opacity,scale' },                                           0)
-        .to('.sidebar-bio',  { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.65, clearProps: 'filter,scale' },                0.1)
-        .to('.sidebar-link', { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.45, stagger: 0.06, clearProps: 'filter,scale' }, 0.2);
+      tl.to('.name-block',                        { opacity: 1, y: 0, scale: 1, duration: 0.5, clearProps: 'transform' },                                              0)
+        .to('.nav-link',                          { opacity: 1, scale: 1, duration: 0.5, clearProps: 'opacity,scale' },                                                0)
+        .to('.sidebar-bio',                       { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.65, clearProps: 'filter,scale' },                     0.35)
+        .to('.about-section .section-heading',    { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.55, clearProps: 'filter,scale' },                     0.35)
+        .to('.about-section .about-body',         { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.65, clearProps: 'filter,scale' },                     0.45)
+        .to('.sidebar-link',                      { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.45, stagger: 0.06, clearProps: 'filter,scale' },      0.45);
       return;
     }
 
     gsap.set('.nav-link',      { opacity: 0, scale: 0.9 });
     gsap.set('.sidebar-bio',   { opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)' });
     gsap.set('.sidebar-link',  { opacity: 0, y: 8,  scale: 0.9, filter: 'blur(8px)'  });
-    gsap.set('.framing-text',  { opacity: 0, y: 28, scale: 0.9, filter: 'blur(10px)' });
+    gsap.set('.framing-text',  { opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)' });
 
     var primary  = document.querySelector('.name-primary');
     var subtitle = document.querySelector('.name-subtitle');
@@ -75,7 +81,7 @@
       tl.to('.nav-link',     { opacity: 1, scale: 1, duration: 0.5, clearProps: 'opacity,scale' },                                              0)
         .to('.sidebar-bio',  { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.65, clearProps: 'filter,scale' },                  0.1)
         .to('.sidebar-link', { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.45, stagger: 0.06, clearProps: 'filter,scale' },   0.2)
-        .to('.framing-text', { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power2.out', clearProps: 'filter,scale' }, 0.1);
+        .to('.framing-text', { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.65, clearProps: 'filter,scale' },                    0.1);
 
       typeText(subtitle, subtitleText, 30);
     });
@@ -87,11 +93,21 @@
     var isAbout = document.body.classList.contains('page-about');
 
     gsap.utils.toArray('.cv-section, .about-section, .brands-section').forEach(function (el) {
+      if (isAbout && el.classList.contains('about-section')) return;
       var inView  = el.getBoundingClientRect().top < window.innerHeight;
-      var delay   = (inView && !isAbout) ? 1.1 : 0;
+      var delay   = inView ? 1.1 : 0;
       var heading = el.querySelector('.section-heading, h2');
-      var body    = el.querySelector('.job-list, .skills-grid, .education-row, .about-body, .brands-list');
+      var body    = el.querySelector('.skills-grid, .education-row, .about-body, .brands-list');
       var st      = { trigger: el, start: 'top 97%', once: true };
+
+      if (el.classList.contains('cv-section')) {
+        gsap.from(el, {
+          scrollTrigger: st,
+          borderTopColor: 'transparent',
+          duration: 0.55, ease: 'power2.out',
+          delay: delay
+        });
+      }
 
       if (heading) {
         gsap.from(heading, {
@@ -116,11 +132,11 @@
     var inViewIndex = 0;
     gsap.utils.toArray('.job').forEach(function (job) {
       var inView = job.getBoundingClientRect().top < window.innerHeight * 0.9;
-      var delay  = inView ? inViewIndex++ * 0.25 : 0;
+      var delay  = inView ? 1.1 + inViewIndex++ * 0.12 : 0;
       gsap.from(job, {
         scrollTrigger: { trigger: job, start: 'top 97%', once: true },
-        opacity: 0, y: 28, scale: 0.9, filter: 'blur(10px)',
-        duration: 0.65, ease: 'power2.out',
+        opacity: 0, y: 12, scale: 0.9, filter: 'blur(10px)',
+        duration: 0.65, ease: 'power3.out',
         delay: delay,
         clearProps: 'filter,scale'
       });
@@ -130,7 +146,7 @@
       var touchStartX  = 0;
       var animStartX   = 0;
       var halfWidth    = 0;
-      var animDuration = 22;
+      var animDuration = 35;
 
       function getTranslateX() {
         var transform = window.getComputedStyle(track).transform;
