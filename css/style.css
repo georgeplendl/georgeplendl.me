@@ -139,6 +139,7 @@ a { color: inherit; text-decoration: underline; }
 }
 
 a .arrow {
+  display: inline-block;
   text-decoration: none !important;
 }
 
