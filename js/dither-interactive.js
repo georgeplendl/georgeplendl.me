@@ -1,6 +1,7 @@
 (function () {
     const DITHER_FG = [0.071, 0.071, 0.071]; /* #121212 */
     const DITHER_BG = [0.0,   0.0,   0.0  ]; /* #000000 */
+    const MAX_CLICKS = 30;
 
     const canvas = document.getElementById('dither-bg');
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -20,6 +21,7 @@
         uniform vec3  u_bg;
         uniform vec2  u_mouse;
         uniform sampler2D u_bayer;
+        uniform vec4  u_clicks[${MAX_CLICKS}];
 
         /* --- 2D Simplex Noise --- */
         vec2 mod289(vec2 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
@@ -70,8 +72,7 @@
             vec2 mouseNorm = u_mouse / u_res;
             mouseNorm.y = 1.0 - mouseNorm.y;
             vec2 mouseCoord = vec2((mouseNorm.x - 0.5) * aspect, mouseNorm.y - 0.5);
-            float ca2 = 0.69466, sa2 = 0.71934;
-            mouseCoord = vec2(ca2*mouseCoord.x - sa2*mouseCoord.y, sa2*mouseCoord.x + ca2*mouseCoord.y);
+            mouseCoord = vec2(ca*mouseCoord.x - sa*mouseCoord.y, sa*mouseCoord.x + ca*mouseCoord.y);
             mouseCoord *= 0.4;
             mouseCoord.x += 0.03;
 
@@ -88,6 +89,26 @@
             n += snoise((p - distortion * 0.5) * 2.0 + vec2(t, t * 0.6)) * mouseInfluence * 0.3;
 
             float lum = n * 0.5 + 0.5;
+
+            // Add gray blobs at click/drag points
+            for (int i = 0; i < ${MAX_CLICKS}; i++) {
+                vec4 click = u_clicks[i];
+                float click_age = u_time - click.z;
+                if (click_age >= 0.0 && click_age < 4.0) {
+                    vec2 c_uv = click.xy;
+                    vec2 c_p = vec2((c_uv.x - 0.5) * aspect, c_uv.y - 0.5);
+                    c_p = vec2(ca*c_p.x - sa*c_p.y, sa*c_p.x + ca*c_p.y);
+                    c_p *= 0.4;
+                    c_p.x += 0.03;
+
+                    float dist = length(p - c_p);
+                    float radius = 0.02 + click_age * 0.04;
+                    float falloff = 1.0 - smoothstep(0.0, radius, dist);
+                    float fade = 1.0 - smoothstep(0.0, 4.0, click_age);
+                    lum += falloff * fade * 0.6;
+                }
+            }
+
             lum = smoothstep(0.42, 0.85, lum);
 
             float bayer = texture2D(u_bayer, blockPos / 8.0).r;
@@ -146,13 +167,50 @@
     gl.uniform3fv(gl.getUniformLocation(prog, 'u_fg'), DITHER_FG);
     gl.uniform3fv(gl.getUniformLocation(prog, 'u_bg'), DITHER_BG);
 
-    let dpr, w, h, start;
+    const uClicks = [];
+    for (let i = 0; i < MAX_CLICKS; i++) {
+        uClicks.push(gl.getUniformLocation(prog, `u_clicks[${i}]`));
+    }
+    const clicks = Array(MAX_CLICKS).fill(null).map(() => ({ x: 0, y: 0, time: -999 }));
+
+    let dpr, w, h, start, currentTime = 0;
     let mouseX = 0, mouseY = 0;
+
+    let isDragging = false;
+    let lastSpawnX = 0, lastSpawnY = 0;
+    const SPAWN_DIST = 40; // pixels between blob spawns while dragging
+
+    function spawnBlob(clientX, clientY) {
+        const x = clientX / window.innerWidth;
+        const y = 1.0 - clientY / window.innerHeight;
+        let oldestIdx = 0;
+        for (let i = 1; i < MAX_CLICKS; i++) {
+            if (clicks[i].time < clicks[oldestIdx].time) oldestIdx = i;
+        }
+        clicks[oldestIdx] = { x, y, time: currentTime };
+        lastSpawnX = clientX;
+        lastSpawnY = clientY;
+    }
 
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX * (dpr || 1);
         mouseY = e.clientY * (dpr || 1);
+        if (isDragging) {
+            const dx = e.clientX - lastSpawnX;
+            const dy = e.clientY - lastSpawnY;
+            if (dx * dx + dy * dy >= SPAWN_DIST * SPAWN_DIST) {
+                spawnBlob(e.clientX, e.clientY);
+            }
+        }
     }, { passive: true });
+
+    window.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        spawnBlob(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('blur', () => { isDragging = false; });
 
     function resize() {
         dpr = Math.min(window.devicePixelRatio, 2);
@@ -170,8 +228,12 @@
 
     function frame(ts) {
         if (!start) start = ts;
-        gl.uniform1f(uTime, (ts - start) / 1000);
+        currentTime = (ts - start) / 1000;
+        gl.uniform1f(uTime, currentTime);
         gl.uniform2f(uMouse, mouseX, mouseY);
+        for (let i = 0; i < MAX_CLICKS; i++) {
+            gl.uniform4f(uClicks[i], clicks[i].x, clicks[i].y, clicks[i].time, 0);
+        }
         gl.drawArrays(gl.TRIANGLES, 0, 3);
         requestAnimationFrame(frame);
     }
