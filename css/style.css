@@ -33,6 +33,31 @@ a { color: inherit; text-decoration: underline; }
 ::selection { background: rgba(255, 255, 255, 0.12); }
 ::-moz-selection { background: rgba(255, 255, 255, 0.12); }
 
+/* ── Interactive portrait canvas ────────────────────────
+   Caps at 640px but shrinks to the parent width on narrow viewports.
+   Negative margins compensate for the 80px "fly room" halo (12.5% of canvas
+   size on each side) so the layout footprint matches the visible blob,
+   scaling automatically with --portrait-size. */
+.about-portrait {
+  --portrait-size: min(640px, 100%);
+  width: var(--portrait-size);
+  height: var(--portrait-size);
+  display: block;
+  opacity: 0.7;
+  image-rendering: pixelated;
+  pointer-events: auto;
+  margin: calc(var(--portrait-size) * -0.125)
+          calc(var(--portrait-size) * -0.125)
+          calc(2rem - var(--portrait-size) * 0.125)
+          calc(var(--portrait-size) * -0.125);
+}
+
+/* Disable pointer events on touch devices so taps/scrolls in the canvas halo
+   pass through to surrounding text instead of triggering the cursor warp. */
+@media (hover: none) and (pointer: coarse) {
+  .about-portrait { pointer-events: none; }
+}
+
 /* ── Page ──────────────────────────────────────────────── */
 
 .page {
