@@ -22,8 +22,8 @@
     const CX = SIZE / 2;
     const CY = SIZE / 2;
     const BLOB_BASE = 211;
-    const BLOB_AMP1 = 8.6;
-    const BLOB_AMP2 = 4.8;
+    const BLOB_AMP1 = 0;
+    const BLOB_AMP2 = 0;
     const BLOB_W1 = 3;
     const BLOB_W2 = 5;
     const BLOB_SPEED1 = 0.00025;
